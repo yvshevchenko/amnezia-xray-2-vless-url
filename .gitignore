@@ -33,3 +33,6 @@ go.work.sum
 
 # qodo assistant 
 .qodo/
+
+# binary folder contents
+bin/*
