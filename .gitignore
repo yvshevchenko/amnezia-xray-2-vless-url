@@ -28,5 +28,11 @@ go.work.sum
 .env
 
 # Editor/IDE
-# .idea/
-# .vscode/
+.idea/
+.vscode/
+
+# qodo assistant 
+.qodo/
+
+# binary folder contents
+bin/*
