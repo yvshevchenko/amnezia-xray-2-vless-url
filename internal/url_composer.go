@@ -2,13 +2,14 @@ package internal
 
 import (
 	"net/url"
+	"strconv"
 )
 
 func (c SourceConfig) ComposeConnectionUrl() string {
 
 	var u = url.URL{
 		Scheme:   c.OutboundSettings[0].Protocol,
-		Host:     c.OutboundSettings[0].Settings.Vnext[0].Address,
+		Host:     c.OutboundSettings[0].Settings.Vnext[0].Address + ":" + strconv.Itoa(c.OutboundSettings[0].Settings.Vnext[0].Port),
 		User:     url.User(c.OutboundSettings[0].Settings.Vnext[0].Users[0].Id),
 		RawQuery: c.ComposeQueryParams(),
 	}

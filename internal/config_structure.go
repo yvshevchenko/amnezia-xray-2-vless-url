@@ -8,7 +8,7 @@ type SourceConfig struct {
 
 type InboundEntity struct {
 	Listen   string                `json:"listen"`
-	Port     uint16                `json:"port"`
+	Port     int                   `json:"port"`
 	Protocol string                `json:"protocol"`
 	Settings InboundEntitySettings `json:"settings"`
 }
@@ -33,7 +33,7 @@ type OutboundEntitySettings struct {
 
 type VnextEntity struct {
 	Address string               `json:"address"`
-	Port    uint16               `json:"port"`
+	Port    int                  `json:"port"`
 	Users   []UserSettingsEntity `json:"users"`
 }
 

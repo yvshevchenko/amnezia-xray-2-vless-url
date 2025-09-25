@@ -1,7 +1,7 @@
 # This workflow will build a golang project
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-go
 
-name: Go
+name: Test go binary
 
 on:
   push:
@@ -21,8 +21,5 @@ jobs:
       with:
         go-version: '1.23.4'
 
-    - name: Build
-      run: go build -v ./...
-
-    # - name: Test
-    #   run: go test -v ./...
+    - name: Test
+      run: go test -v ./...
