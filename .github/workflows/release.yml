@@ -20,7 +20,6 @@ jobs:
     - name: Build Go binary
       run: |
         GOOS=linux GOARCH=amd64 go build -o amnezia-xray-to-vless-url ./cmd/amnezia_xray_to_vless_url
-        chmod +x amnezia-xray-to-vless-url
 
     - name: Upload Release Asset
       uses: softprops/action-gh-release@v1
