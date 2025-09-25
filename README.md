@@ -14,16 +14,18 @@ The tool converts Amnezia X-Ray JSON configuration file (aka XRay original) to v
 3. Run the tool
 
    On Linux:
-   ```
-   ./anezia-xray-to-vless-url /path/to/file.json
-   ```
+      ```
+      ./anezia-xray-to-vless-url /path/to/file.json
+      ```
+
+      _Do not forget to **chmod +x ...** the downloaded binary before attempting to run it_
 
    On windows:
 
-   ```
-   anezia-xray-to-vless-url.exe \path\to\file.json
-   ```
+      ```
+      anezia-xray-to-vless-url.exe \path\to\file.json
+      ```
 
-   _Replace `/path/to/file.json` with actual path to your configuration file._
+      _Replace `/path/to/file.json` with actual path to your configuration file._
 
 4. Use generated URL on your own!
