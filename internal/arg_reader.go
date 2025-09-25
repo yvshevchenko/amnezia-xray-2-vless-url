@@ -10,7 +10,7 @@ import (
 func ReadArg() (string, error) {
 	args := os.Args
 
-	if len(args) != 2 {
+	if len(args) < 2 {
 		return "", errors.New("Parameters count mismatch.")
 	}
 
