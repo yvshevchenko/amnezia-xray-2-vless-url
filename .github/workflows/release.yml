@@ -28,3 +28,31 @@ jobs:
           amnezia-xray-to-vless-url
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  build-windows:
+    runs-on: windows-latest # Specifies a Windows virtual machine runner
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4 # Checks out the repository code
+
+    - name: Set up Go
+      uses: actions/setup-go@v5 # Sets up the Go environment
+      with:
+        go-version: '1.23.4' # Specify your desired Go version
+
+    - name: Set up environment for Windows build
+      run: |
+        echo "GOOS=windows" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+        echo "GOARCH=amd64" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+
+    - name: Build Go application for Windows
+      run: go build -o amnezia-xray-to-vless-url.exe ./cmd/amnezia_xray_to_vless_url # Adjust 'myapp.exe' and path to your main package
+
+    - name: Upload Release Asset
+      uses: softprops/action-gh-release@v1
+      with:
+        files: |
+          amnezia-xray-to-vless-url.exe
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
