@@ -11,6 +11,10 @@ The tool converts Amnezia X-Ray JSON configuration file (aka XRay original) to v
 
 2. Save your Amnezia config as a text file
 
+   You can figure out how your configuration looks like by checking
+
+   https://github.com/yvshevchenko/amnezia-xray-2-vless-url/blob/main/cmd/examples/example.json
+
 3. Run the tool
 
    On Linux:
