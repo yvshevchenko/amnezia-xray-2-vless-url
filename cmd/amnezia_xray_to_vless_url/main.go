@@ -14,11 +14,13 @@ func main() {
 		log.Fatalf("Error arguments reading: %s", err.Error())
 	}
 
+	// creating new instance of cfg struct
 	cfg, err := internal.NewSourceConfig(fileName)
 	if err != nil {
 		log.Fatalf("Error reading config: %s", err.Error())
 	}
 
+	// validating
 	if !cfg.ConfigIsValid() {
 		log.Fatalf("Error validating config: %+v", cfg)
 	}
