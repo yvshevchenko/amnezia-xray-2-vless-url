@@ -2,11 +2,14 @@ package internal
 
 import (
 	"encoding/json"
+	"errors"
 	"io"
 	"net/url"
 	"os"
 	"strconv"
 )
+
+const MAX_CONFIG_FILE_SIZE = 3 * 1024 // 3kB max for config file
 
 type SourceConfig struct {
 	InboundsSettings []InboundEntity `json:"inbounds"`
@@ -118,6 +121,17 @@ func NewSourceConfig(fileName string) (SourceConfig, error) {
 		return cfg, err
 	}
 	defer file.Close()
+
+	// getting file stats to check the size
+	fileStat, err := file.Stat()
+	if err != nil {
+		return cfg, err
+	}
+
+	// checking if the size exceeds max value
+	if fileStat.Size() > MAX_CONFIG_FILE_SIZE {
+		return cfg, errors.New("config file too large")
+	}
 
 	// reading the file contents
 	fileContent, err := io.ReadAll(file)
