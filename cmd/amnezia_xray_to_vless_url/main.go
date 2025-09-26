@@ -9,6 +9,7 @@ import (
 func main() {
 	// reading ARGS, validating and returning first one
 	fileName, err := internal.ReadFileNameArg()
+	fileName, err := internal.ReadFileNameArg()
 
 	if err != nil {
 		log.Fatalf("Error arguments reading: %s", err.Error())
