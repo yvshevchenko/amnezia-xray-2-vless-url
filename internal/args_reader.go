@@ -7,7 +7,7 @@ import (
 )
 
 // reads fileName arg
-func ReadArg() (string, error) {
+func ReadFileNameArg() (string, error) {
 	args := os.Args
 
 	if len(args) < 2 {
